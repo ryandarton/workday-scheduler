@@ -9,8 +9,8 @@ $(function () {
     localStorage.setItem(timeBlockId, userInput);
   });
 
-  // Get the current hour using Day.js
-  var currentHour = dayjs().format('H');
+  // Get the current hour using Day.js in military time format
+  var currentHour = dayjs().format('HH');
 
   // Loop through each time-block
   $('.time-block').each(function () {
