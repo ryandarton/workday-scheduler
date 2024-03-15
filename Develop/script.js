@@ -34,5 +34,5 @@ $(function () {
 
   // Display the current date in the header of the page
   var currentDate = dayjs().format('MMMM D, YYYY');
-  $('.current-date').text(currentDate);
+  $('#currentDay').text(currentDate);
 });
