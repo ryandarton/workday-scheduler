@@ -11,6 +11,8 @@ $(function () {
 
   // Get the current hour using Day.js
   var currentHour = dayjs().format('H');
+  // convert currentHour to Mountain Time
+  currentHour = parseInt(currentHour) + 1;
 
   // Loop through each time-block
   $('.time-block').each(function () {
