@@ -39,4 +39,10 @@ $(function () {
   // Display the current date in the header of the page
   var currentDate = dayjs().format('MMMM D, YYYY');
   $('#currentDay').text(currentDate);
+
+  // Display the current date in the header of the page
+  var currentTime = dayjs().format('h:mm A');
+  // convert currentHour to Mountain Time
+  currentHour = parseInt(currentHour) + 1;
+  $('#currentTime').text(currentTime);
 });
