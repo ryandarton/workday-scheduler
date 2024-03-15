@@ -1,6 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 $(function () {
   // Add a listener for click events on the save button
   $('.saveBtn').on('click', function () {
@@ -14,15 +11,20 @@ $(function () {
 
   // Get the current hour using Day.js
   var currentHour = dayjs().format('H');
+
   // Loop through each time-block
   $('.time-block').each(function () {
     // Get the id of the time-block
     var timeBlockId = $(this).attr('id');
+    // translate the time-block id to a 24-hour format
+    timeBlockId = timeBlockId.split('-')[1];
     // Get the user input from local storage using the time-block id as the key
     var userInput = localStorage.getItem(timeBlockId);
     // Set the value of the corresponding textarea element
     $(this).find('textarea').val(userInput);
-    // Add or remove the past, present, or future class based on the current hour
+    // Remove all classes from the time-block
+    $(this).removeClass('past present future');
+    // Add the appropriate class based on the current hour
     if (timeBlockId < currentHour) {
       $(this).addClass('past');
     } else if (timeBlockId === currentHour) {
