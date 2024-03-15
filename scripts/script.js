@@ -40,7 +40,5 @@ $(function () {
 
   // Display the current date in the header of the page
   var currentTime = dayjs().format('h:mm A');
-  // convert currentHour to Mountain Time
-  currentHour = parseInt(currentHour);
   $('#currentTime').text(currentTime);
 });
